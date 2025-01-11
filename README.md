@@ -13,7 +13,7 @@ A modern image analysis tool powered by Google's Gemini AI that provides detaile
 
 ## Tech Stack
 
-- Next.js 14
+- Next.js 15.1.3
 - TypeScript
 - Tailwind CSS
 - Shadcn UI
