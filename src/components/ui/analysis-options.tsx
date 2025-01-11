@@ -11,12 +11,6 @@ import {
 } from "lucide-react"
 import { AnalysisType } from "@/lib/prompts"
 
-export type AnalysisType =
-  | "instagram"
-  | "detailed"
-  | "midjourney"
-  | "stable-diffusion"
-
 interface AnalysisOption {
   id: AnalysisType
   label: string
