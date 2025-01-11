@@ -9,6 +9,7 @@ import {
   ImageIcon,
   CheckCircle,
 } from "lucide-react"
+import { AnalysisType } from "@/lib/prompts"
 
 export type AnalysisType =
   | "instagram"

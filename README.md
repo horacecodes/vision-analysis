@@ -38,7 +38,7 @@ bun install
 3. Create a `.env.local` file:
 
 ```env
-NEXT_PUBLIC_GEMINI_API_KEY=your_api_key_here
+GEMINI_API_KEY=your_api_key_here
 ```
 
 4. Start the development server:
@@ -49,4 +49,5 @@ bun dev
 
 ## Environment Variables
 
-- `NEXT_PUBLIC_GEMINI_API_KEY`: Your Google Gemini API key (Get it from [Google AI Studio](https://makersuite.google.com/app/apikey))
+- `GEMINI_API_KEY`: Your Google Gemini API key (Get it from [Google AI Studio](https://makersuite.google.com/app/apikey))
+

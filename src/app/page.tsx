@@ -2,12 +2,13 @@
 
 import { useState } from "react"
 import { ImageUpload } from "@/components/ui/image-upload"
-import { AnalysisOptions, AnalysisType } from "@/components/ui/analysis-options"
+import { AnalysisOptions } from "@/components/ui/analysis-options"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Loader2, Copy, Check } from "lucide-react"
-import { analyzeImage } from "@/lib/gemini"
+import { analyzeImageAction } from "./actions"
 import { cn } from "@/lib/utils"
+import { AnalysisType } from "@/lib/prompts"
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false)
@@ -148,8 +149,8 @@ export default function Home() {
         reader.readAsDataURL(selectedImage)
       })
 
-      // Then analyze the image
-      const analysisResult = await analyzeImage(base64Image, analysisType)
+      // Use the server action to analyze the image
+      const analysisResult = await analyzeImageAction(base64Image, analysisType)
       setResult(analysisResult)
       setLoadingProgress(100)
       clearInterval(progressInterval)
