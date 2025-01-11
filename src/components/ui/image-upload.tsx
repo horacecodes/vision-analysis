@@ -51,7 +51,7 @@ export function ImageUpload({ onImageSelect, className }: ImageUploadProps) {
 
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 pointer-events-none" />
 
-      <div className="relative flex flex-col items-center justify-center gap-4 p-8">
+      <div className="relative flex flex-col items-center justify-center min-h-[300px] gap-4 p-8">
         {preview ? (
           <>
             <img
@@ -64,7 +64,7 @@ export function ImageUpload({ onImageSelect, className }: ImageUploadProps) {
             </p>
           </>
         ) : (
-          <>
+          <div className="flex flex-col items-center justify-center gap-4">
             <div className="p-4 rounded-full bg-zinc-800/80 backdrop-blur-sm">
               <ImageIcon className="w-8 h-8 text-zinc-400" />
             </div>
@@ -83,7 +83,7 @@ export function ImageUpload({ onImageSelect, className }: ImageUploadProps) {
                 Supports PNG, JPG, WEBP up to 10MB
               </p>
             </div>
-          </>
+          </div>
         )}
       </div>
     </Card>
