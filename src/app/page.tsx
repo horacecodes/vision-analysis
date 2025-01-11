@@ -9,7 +9,7 @@ import { Loader2, Copy, Check } from "lucide-react"
 import { analyzeImageAction } from "./actions"
 import { cn } from "@/lib/utils"
 import { AnalysisType } from "@/lib/prompts"
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/hooks/use-toast"
 
 function CopyButton({ text }: { text: string }) {
   const { toast } = useToast()
