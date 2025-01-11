@@ -2,6 +2,10 @@
 
 A modern image analysis tool powered by Google's Gemini AI that provides detailed image analysis, Instagram captions, and AI art prompts.
 
+[![Vision Analysis Preview](https://github.com/horacecodes/vision-analysis/raw/main/preview.png)](https://vision-analysis.vercel.app/)
+
+🔗 [Try it live](https://vision-analysis.vercel.app/)
+
 ## Features
 
 - 🖼️ **Image Analysis**: Detailed breakdown of objects, colors, composition, mood, lighting, and textures
@@ -50,4 +54,10 @@ bun dev
 ## Environment Variables
 
 - `GEMINI_API_KEY`: Your Google Gemini API key (Get it from [Google AI Studio](https://makersuite.google.com/app/apikey))
+
+## Security Notes
+
+- The application uses server-side API calls to protect your API keys
+- Environment variables are properly secured and not exposed to the client
+- All image analysis is performed on the server side
 
