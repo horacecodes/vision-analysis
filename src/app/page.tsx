@@ -5,21 +5,29 @@ import { ImageUpload } from "@/components/ui/image-upload"
 import { AnalysisOptions } from "@/components/ui/analysis-options"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Loader2, Copy, Check } from "lucide-react"
+import { Loader2, Copy } from "lucide-react"
 import { analyzeImageAction } from "./actions"
 import { cn } from "@/lib/utils"
 import { AnalysisType } from "@/lib/prompts"
+import { useToast } from "@/components/ui/use-toast"
 
 function CopyButton({ text }: { text: string }) {
-  const [copied, setCopied] = useState(false)
+  const { toast } = useToast()
 
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(text)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      toast({
+        title: "Copied to clipboard",
+        description: "The text has been copied to your clipboard.",
+      })
     } catch (err) {
       console.error("Failed to copy text:", err)
+      toast({
+        title: "Failed to copy",
+        description: "There was an error copying the text to your clipboard.",
+        variant: "destructive",
+      })
     }
   }
 
@@ -30,7 +38,7 @@ function CopyButton({ text }: { text: string }) {
       className="h-8 w-8 text-zinc-400 hover:text-white"
       onClick={copyToClipboard}
     >
-      {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+      <Copy className="h-4 w-4" />
     </Button>
   )
 }
