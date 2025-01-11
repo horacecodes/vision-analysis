@@ -2,7 +2,7 @@
 
 A modern image analysis tool powered by Google's Gemini AI that provides detailed image analysis, Instagram captions, and AI art prompts.
 
-[![Vision Analysis Preview](https://vision-analysis.vercel.app/preview.jpg)](https://vision-analysis.vercel.app/)
+[![Vision Analysis Preview](https://vision-analysis.vercel.app/screenshot.png)](https://vision-analysis.vercel.app/)
 
 🔗 [Try it live](https://vision-analysis.vercel.app/)
 
