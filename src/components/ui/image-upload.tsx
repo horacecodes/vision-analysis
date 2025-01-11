@@ -1,10 +1,11 @@
 "use client"
 
-import { useCallback, useState } from "react"
+import { useCallback, useState, useEffect } from "react"
 import { useDropzone } from "react-dropzone"
 import { cn } from "@/lib/utils"
 import { Card } from "./card"
-import { ImageIcon, Upload } from "lucide-react"
+import { ImageIcon } from "lucide-react"
+import Image from "next/image"
 
 interface ImageUploadProps {
   onImageSelect: (file: File) => void
@@ -14,15 +15,22 @@ interface ImageUploadProps {
 export function ImageUpload({ onImageSelect, className }: ImageUploadProps) {
   const [preview, setPreview] = useState<string | null>(null)
 
+  // Cleanup function for blob URLs
+  useEffect(() => {
+    return () => {
+      if (preview && preview.startsWith('blob:')) {
+        URL.revokeObjectURL(preview)
+      }
+    }
+  }, [preview])
+
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
       const file = acceptedFiles[0]
       if (file) {
-        const reader = new FileReader()
-        reader.onload = () => {
-          setPreview(reader.result as string)
-        }
-        reader.readAsDataURL(file)
+        // Create a blob URL instead of data URL
+        const blobUrl = URL.createObjectURL(file)
+        setPreview(blobUrl)
         onImageSelect(file)
       }
     },
@@ -54,11 +62,16 @@ export function ImageUpload({ onImageSelect, className }: ImageUploadProps) {
       <div className="relative flex flex-col items-center justify-center min-h-[300px] gap-4 p-8">
         {preview ? (
           <>
-            <img
-              src={preview}
-              alt="Preview"
-              className="max-w-full max-h-[400px] rounded-lg object-contain"
-            />
+            <div className="relative w-full max-w-[600px] h-[400px]">
+              <Image
+                src={preview}
+                alt="Preview"
+                fill
+                className="rounded-lg object-contain"
+                priority
+                unoptimized
+              />
+            </div>
             <p className="text-sm text-zinc-400">
               Click or drag to choose a different image
             </p>
