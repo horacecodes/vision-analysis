@@ -13,7 +13,7 @@ export function Header() {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/yourusername/vision-analysis"
+              href="https://github.com/horacecodes/vision-analysis"
               target="_blank"
               rel="noopener noreferrer"
               className="text-zinc-400 hover:text-white transition-colors"
@@ -21,7 +21,7 @@ export function Header() {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="https://twitter.com/horacecodes"
               target="_blank"
               rel="noopener noreferrer"
               className="text-zinc-400 hover:text-white transition-colors"
